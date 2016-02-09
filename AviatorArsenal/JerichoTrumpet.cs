@@ -40,13 +40,13 @@ namespace AviatorArsenal
         public string audioClipName = "";
 
         [KSPField(isPersistant = false, guiActive = false)]
-        public string propellerDiscreteTransformName = "";
+        public string propellerDiscreteTransformName = ""; //Transform for the visible 3d propellers
 
         [KSPField(isPersistant = false, guiActive = false)]
-        public string propellerDiskTransformName = "";
+        public string propellerDiskTransformName = ""; //Transform for the blurred high rpm disk
 
         [KSPField(isPersistant = false, guiActive = false)]
-        public string propAxisTransformName = "";
+        public string propAxisTransformName = ""; //Transform for the rotation axis of the propeller
 
         [KSPField(isPersistant = false, guiActive = false)]
         public Vector3 partLocalOrientationVector = Vector3.up;
@@ -124,7 +124,7 @@ namespace AviatorArsenal
                 trumpetClip = GameDatabase.Instance.GetAudioClip(audioClipName);
 
                 trumpetSource = gameObject.AddComponent<AudioSource>();
-                trumpetSource.dopplerLevel = 1;
+                trumpetSource.dopplerLevel = 0;
                 trumpetSource.priority = 5;
                 trumpetSource.bypassListenerEffects = true;
                 trumpetSource.minDistance = 0.1f;
@@ -190,7 +190,7 @@ namespace AviatorArsenal
             if (currentRPM < -maxRPM)
                 currentRPM = -maxRPM;
 
-            if (currentRPM < 1 )
+            if (currentRPM < 0.05 )
             {
                 currentRPM = 0;
             }
