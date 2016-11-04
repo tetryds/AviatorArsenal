@@ -171,7 +171,10 @@ namespace AviatorArsenal
 
         void FixedUpdateFrictionRPM()
         {
-            float errorRPM = -currentRPM;
+
+            float velocity = Vector3.Dot(vessel.srf_velocity, propAxisTransform.forward);
+
+            float errorRPM = - (1f / (1f + (velocity * velocity) / 100f)) * (currentRPM + 300); //Fuck physics. Looks better tho.
             float tmp1 = errorRPM * frictionDecayFactor;
             float tmp2 = Math.Abs(0.6f * errorRPM);     //limits to prevent overshoot due to large timesteps
 
