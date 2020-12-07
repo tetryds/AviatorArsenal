@@ -1,0 +1,6 @@
+Aviator Arsenal for KSP 1.4.5 .dll recompile
+
+AviatorArsenal.dll by ferram4 and tetryds. AviatorArsenal code is copyright 2015, All Rights Reserved, Michael Ferrara, aka ferram4
+This is merely a recompile of their work to be compatible with the latest version of KSP.
+
+The AAPartCatalogue.dll incorporates category creation code from a part of USITools called PartCatalog.cs and is used under the GPLv3 License. (GPLv3) 
